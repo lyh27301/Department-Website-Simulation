@@ -1,0 +1,47 @@
+
+<section>
+  <div class="sidenav left-content">
+    <a (click)="changeMode('ALL')">All</a>
+    <a (click)="changeMode('ANNOUNCEMENT')">Announcements</a>
+    <a (click)="changeMode('AWARD')">Awards</a>
+  </div>
+
+  <div *ngIf="mode==='ALL'">
+    <div class="container right-content">
+      <div class="block-header">News<span>@CS</span></div>
+      <div *ngFor="let news of allNews">
+        <div class="element" (click)="navigateToPost(news)">
+          <div class="post-title">{{news.ntitle}}</div>
+          <div class="date">{{news.ndate}}  <span class="tag">{{news.ntype}}</span></div>
+        </div>
+      </div>
+      <div class="no-post" *ngIf="this.allNews && this.allNews.length===0">
+        There is currently no post.
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="mode==='CONTENT'">
+    <div class="post-container right-content" [innerHTML]="currentViewingContent"></div>
+  </div>
+
+  <div *ngIf="mode==='ANNOUNCEMENT' || mode==='AWARD'">
+    <div class="container right-content">
+      <div class="block-header">News<span>@CS</span></div>
+      <div *ngFor="let news of filteredNews(mode)">
+        <div class="element" (click)="navigateToPost(news)">
+          <div class="post-title">{{news.ntitle}}</div>
+          <div class="date">{{news.ndate}}  <span class="tag">{{news.ntype}}</span></div>
+        </div>
+      </div>
+      <div class="no-post" *ngIf="this.allNews && this.allNews.length===0 || filteredNews(mode).length===0">
+        There is currently no {{mode}} post.</div>
+    </div>
+  </div>
+
+</section>
+
+
+
+
+

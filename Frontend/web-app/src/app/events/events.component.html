@@ -1,0 +1,43 @@
+<section>
+  <div class="sidenav left-content">
+    <a (click)="changeMode('ALL')">All</a>
+    <a (click)="changeMode('COLLOQUIUM')">Colloquia</a>
+    <a (click)="changeMode('SEMINARS')">Seminars</a>
+  </div>
+
+
+    <div *ngIf="!isViewingContent && this.mode==='ALL'">
+      <div class="container right-content">
+        <div class="block-header">Events<span>@CS</span></div>
+        <div *ngFor="let event of allEvents">
+          <div class="element" (click)="navigateToPost(event)">
+            <div class="post-title">{{event.etitle}}</div>
+            <div class="date">{{event.edate}}  <span class="tag">{{event.etype}}</span></div>
+          </div>
+        </div>
+        <div class="no-post" *ngIf="this.allEvents && this.allEvents.length===0">
+          There is currently no post.
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="!isViewingContent && this.mode!=='ALL'">
+      <div class="container right-content">
+        <div class="block-header">Events<span>@CS</span></div>
+        <div *ngFor="let event of getEventsOfCategory()">
+          <div class="element" (click)="navigateToPost(event)">
+            <div class="post-title">{{event.etitle}}</div>
+            <div class="date">{{event.edate}}  <span class="tag">{{event.etype}}</span></div>
+          </div>
+        </div>
+        <div class="no-post" *ngIf="this.allEvents && this.allEvents.length===0">
+          There is currently no post.
+        </div>
+      </div>
+    </div>
+
+  <div *ngIf="isViewingContent">
+    <div class="post-container right-content" [innerHTML]="currentViewingContent"></div>
+  </div>
+
+</section>

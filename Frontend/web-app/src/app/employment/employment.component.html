@@ -1,0 +1,64 @@
+
+<section class="content-section">
+  <div class="sidenav left-content">
+    <a href="/employment/lecturer/">Course Lecturer</a>
+    <a href="/employment/lecturer-info/">Current Course Lecturer Priority Points List</a>
+    <a href="/employment/research/">Research</a>
+    <a href="/employment/student/">Student</a>
+  </div>
+
+
+  <div *ngIf="this.currentOpenedPage">
+    <div class="post-container right-content"
+         [innerHTML]="currentOpenedPage.jbody">
+    </div>
+  </div>
+
+  <div *ngIf="!this.currentOpenedPage">
+    <div *ngIf="currentPage==='lecturer'" class="container right-content">
+      <div class="block-header">Course Lecturer Postings<span>@CS</span></div>
+      <div *ngFor="let post of employmentPosts">
+        <div class="element" (click)="openPage(post)">
+          <div class="post-title">{{post.jname}}</div>
+          <div class="date">{{post.jtime}}</div>
+        </div>
+      </div>
+      <div class="no-post" *ngIf="employmentPosts && employmentPosts.length===0">
+        There is currently no posting.</div>
+    </div>
+
+    <div *ngIf="currentPage==='research'" class="container right-content">
+      <div class="block-header">Research Postings<span>@CS</span></div>
+      <div *ngFor="let post of employmentPosts">
+        <div class="element" (click)="openPage(post)">
+          <div class="post-title">{{post.jname}}</div>
+          <div class="date">{{post.jtime}}</div>
+        </div>
+      </div>
+      <div class="no-post" *ngIf="employmentPosts && employmentPosts.length===0">
+        There is currently no posting.</div>
+    </div>
+
+    <div *ngIf="currentPage==='student'" class="container right-content">
+      <div class="block-header">Student Postings<span>@CS</span></div>
+      <div *ngFor="let post of employmentPosts">
+        <div class="element" (click)="openPage(post)">
+          <div class="post-title">{{post.jname}}</div>
+          <div class="date">{{post.jtime}}</div>
+        </div>
+      </div>
+      <div class="no-post" *ngIf="employmentPosts && employmentPosts.length===0">
+        There is currently no posting.</div>
+    </div>
+  </div>
+
+  <div *ngIf="employmentPosts && currentPage==='lecturer-info'"
+       class="post-container right-content"
+       [innerHTML]="employmentPosts[0].jbody">
+  </div>
+
+</section>
+
+
+
+

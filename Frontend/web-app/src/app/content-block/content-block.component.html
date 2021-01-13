@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="header">{{headerName}}<span>@CS</span></div>
+
+  <div *ngIf="headerName==='Events'">
+    <div *ngFor="let event of allEvents">
+      <div class="element" (click)="navigateToEvent(event)">
+        <div class="post-title">{{event.etitle}}</div>
+        <div class="date">{{event.edate}}  <span class="tag">{{event.etype}}</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="headerName==='Latest'">
+    <div *ngFor="let news of allNews">
+      <div class="element" (click)="navigateToNews(news)">
+        <div class="post-title">{{news.ntitle}}</div>
+        <div class="date">{{news.ndate}}  <span class="tag">{{news.ntype}}</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="headerName==='Postings'">
+    <div *ngFor="let post of allEmployments">
+      <div class="element" (click)="navigateToEmployment(post)">
+        <div class="post-title">{{post.jname}}</div>
+        <div class="date">{{post.jtime}}  <span class="tag">{{post.jtype}}</span></div>
+      </div>
+    </div>
+  </div>
+
+
+
+</div>

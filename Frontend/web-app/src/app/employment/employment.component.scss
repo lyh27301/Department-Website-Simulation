@@ -1,0 +1,51 @@
+.container {
+  margin-top: 20px;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 10px;
+}
+
+.block-header {
+  font-size: 25px;
+  color: darkred;
+  font-family: Georgia, sans-serif;
+  border-bottom: 2px solid darkred;
+  font-weight: lighter;
+}
+
+.header span {
+  color: indianred;
+}
+
+.element {
+  padding: 15px;
+  background-color: #d9d2d2;
+  margin-top: 5px;
+
+  &:hover {
+    background-color: #fcf7f7;
+    cursor: pointer;
+  }
+}
+
+.post-title{
+  color: #424242;
+  padding-bottom: 10px;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.date {
+  color: #424242;
+  font-size: 16px;
+}
+
+.no-post {
+  font-size: 18px;
+  margin-top: 20px;
+  color: #424242;
+}
+
+

@@ -1,0 +1,24 @@
+* {
+  box-sizing: border-box;
+}
+
+.left-content {
+  float: left;
+  width: 60%;
+}
+
+section{
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+.right-content {
+  float: left;
+  width: 40%;
+}
+
+section:after {
+  content: "";
+  display: table;
+  clear: both;
+}

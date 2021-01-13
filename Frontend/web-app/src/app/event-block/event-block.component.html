@@ -1,0 +1,18 @@
+
+<div class="header">Events<span>@CS</span></div>
+<div class="grid-container">
+
+  <div *ngFor="let event of allEvents">
+    <div class="grid-items" (click)="navigateToEvent(event)">
+      <div class="title">{{event.etitle}}</div>
+      <hr>
+      <div class="date">{{event.edate}} </div>
+      <div class="tag"> {{event.etype}}</div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
